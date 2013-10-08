@@ -15,7 +15,6 @@ use snakeaas\NCKEditor\Storage;
  *
  * @package snakeaas\NCKEditor
  *
- * @method \Nette\Forms\Form getForm($need = TRUE) Returns self.
  * @method \Nette\Forms\Form setAction($url) Sets form's action.
  * @method mixed getAction() Returns form's action.
  * @method \Nette\Forms\Form setMethod($method) Sets form's method.
@@ -118,8 +117,26 @@ class NCKEditor extends Control {
 	 */
 	public function __call($name, $arguments) {
 		if (method_exists($this->form, $name)) {
-			call_user_func_array($this->form->$name, $arguments);
+			return call_user_func_array($this->form->$name, $arguments);
 		}
+
+		parent::__call($name, $arguments);
+	}
+
+
+	/**
+	 * Mediates standard properties from \Nette\Application\UI\Form
+	 *
+	 * @param string $name
+	 *
+	 * @return mixed
+	 */
+	public function &__get($name) {
+		if (property_exists($this->form, $name)) {
+			return $this->form->$name;
+		}
+
+		return parent::__get($name);
 	}
 
 
@@ -129,14 +146,17 @@ class NCKEditor extends Control {
 	 * Render a component
 	 */
 	public function render() {
-
 		$this->template->setFile(__DIR__ . '/templates/' . $this->templateName);
 
 		$this->template->richTexts = $this->getRichTextNames();
-		$this->template->form      = $this->form;
 		$this->template->config    = $this->configuration;
 
 		$this->template->render();
+	}
+
+
+	protected function createComponentForm() {
+		return $this->form;
 	}
 
 
@@ -185,7 +205,7 @@ class NCKEditor extends Control {
 	/**
 	 * @param Storage\IStorage $storage
 	 */
-	public function setStorage($storage) {
+	public function setStorage(Storage\IStorage $storage) {
 		$this->storage = $storage;
 	}
 
@@ -195,5 +215,13 @@ class NCKEditor extends Control {
 	 */
 	public function getStorage() {
 		return $this->storage;
+	}
+
+
+	/**
+	 * @return Form
+	 */
+	public function getForm() {
+		return $this->form;
 	}
 }
