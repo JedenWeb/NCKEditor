@@ -1,5 +1,5 @@
 {
-  "name": "snake-aas/nette-ckeditor",
+  "name": "snake-aas/nckeditor",
   "description": "Implementation of CKEditor WYSIWYG editor as a Nette Framework component",
   "type": "library",
   "license": ["MIT"],
@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">= 5.3.13",
+    "php": ">= 5.3.*",
     "nette/nette": ">= 2.0.10"
   },
   "autoload": {
