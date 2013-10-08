@@ -1,0 +1,15 @@
+
+{$form}
+
+<script src="{$basePath}/ckeditor/ckeditor.js"></script>
+<script>
+    {!$config}
+
+    {foreach $richTexts as $richText}
+        CKEDITOR.replace({$richText}, {
+            customConfig: '',
+            filebrowserImageBrowseUrl: {link imageBrowse},
+            filebrowserImageUploadUrl: {link uploadFile}
+        });
+    {/foreach}
+</script>

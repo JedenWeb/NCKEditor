@@ -1,0 +1,57 @@
+<style>
+    .thumbnails {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    .thumbnail {
+        border: 1px solid #EEEEEE;
+        cursor: pointer;
+        display: inline-block;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .thumbnail img {
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+    .selected {
+        background-color: #fcbe76;
+    }
+</style>
+
+<div class="thumbnails">
+    {foreach $images as $image}
+        <a class="thumbnail" data-src="{$filePath}/{$image->getFilename()}">
+            <img alt="img" src="{$filePath}/{$image->getFilename()}"><br>
+            {$image->getFilename()}<br>
+            {$image->getSize()|bytes}
+        </a>
+    {/foreach}
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var selectedImage = null;
+
+        $('.thumbnail').click(function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+                selectedImage = null;
+            } else {
+                $('.thumbnail').removeClass('selected');
+                $(this).addClass('selected');
+                selectedImage = $(this).data('src');
+            }
+        });
+
+        $('.thumbnail').dblclick(function () {
+            window.opener.CKEDITOR.tools.callFunction({$_GET['CKEditorFuncNum']}, $(this).data('src'));
+            window.close();
+        });
+    });
+</script>
