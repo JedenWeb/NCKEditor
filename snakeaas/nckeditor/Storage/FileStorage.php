@@ -64,7 +64,7 @@ class FileStorage extends Object implements IStorage {
 	 * @return mixed
 	 */
 	public function getFiles() {
-		return Finder::find('*')->in($this->getFSUploadDir());
+		return Finder::findFiles('*')->in($this->getFSUploadDir());
 	}
 
 	/**
@@ -73,7 +73,7 @@ class FileStorage extends Object implements IStorage {
 	 * @return mixed
 	 */
 	public function getImages() {
-		return Finder::find('*.jpg', '*.png', '*.gif')->in($this->getFSUploadDir());
+		return Finder::findFiles('*.jpg', '*.png', '*.gif')->in($this->getFSUploadDir());
 	}
 
 	/**
