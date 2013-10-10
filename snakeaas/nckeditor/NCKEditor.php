@@ -168,6 +168,9 @@ class NCKEditor extends Control {
 
 		$this->template->filePath = $this->template->basePath . '/' . $this->storage->getBaseUrl();
 		$this->template->images   = $this->storage->getImages();
+		$this->template->setFile(__DIR__ . '/templates/' . $this->templateName);
+		$this->template->render();
+		$this->getPresenter()->terminate();
 	}
 
 

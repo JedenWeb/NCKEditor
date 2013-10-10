@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<head>
 <style>
     .thumbnails {
         margin-left: 20px;
@@ -22,7 +25,8 @@
         background-color: #fcbe76;
     }
 </style>
-
+</head>
+<body>
 <div class="thumbnails">
     {foreach $images as $image}
         <a class="thumbnail" data-src="{$filePath}/{$image->getFilename()}">
@@ -33,7 +37,7 @@
     {/foreach}
 </div>
 
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         var selectedImage = null;
