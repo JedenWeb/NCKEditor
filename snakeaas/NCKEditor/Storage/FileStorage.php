@@ -21,8 +21,8 @@ class FileStorage extends Object implements IStorage {
 	protected $category = null;
 
 
-	public function __construct($wwwDir) {
-		$this->uploadDirName = 'upload';
+	public function __construct($wwwDir, $uploadDir) {
+		$this->uploadDirName = $uploadDir;
 		$this->wwwDir        = realpath($wwwDir);
 	}
 
