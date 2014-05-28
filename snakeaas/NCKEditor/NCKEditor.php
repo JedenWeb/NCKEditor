@@ -83,13 +83,13 @@ class NCKEditor extends Control {
 	/**
 	 * Initialize component
 	 */
-	public function __construct($wwwDir) {
+	public function __construct($wwwDir, $uploadDir = 'upload') {
 		$this->form          = new Form();
 		$this->richTexts     = array();
 		$this->configuration = new Config();
 		$this->templateName  = 'NCKEditor.latte';
 
-		$this->storage = new Storage\FileStorage($wwwDir);
+		$this->storage = new Storage\FileStorage($wwwDir, $uploadDir);
 	}
 
 
