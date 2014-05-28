@@ -184,6 +184,9 @@ class NCKEditor extends Control {
 
 		$this->template->url     = $this->template->basePath . '/' . $this->storage->getBaseUrl() . '/' . $_FILES['upload']['name'];
 		$this->template->message = 'Soubor byl nahrán';
+		$this->template->setFile(__DIR__ . '/templates/' . $this->templateName);
+		$this->template->render();
+		$this->getPresenter()->terminate();
 	}
 
 
