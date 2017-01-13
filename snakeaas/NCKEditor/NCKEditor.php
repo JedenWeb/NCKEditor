@@ -117,7 +117,7 @@ class NCKEditor extends Control {
 	 */
 	public function __call($name, $arguments) {
 		if (method_exists($this->form, $name)) {
-			return call_user_func_array($this->form->$name, $arguments);
+			return call_user_func_array(array($this->form, $name), $arguments);
 		}
 
 		parent::__call($name, $arguments);
