@@ -6,8 +6,6 @@
 
 namespace snakeaas\NCKEditor;
 
-use Nette\Object;
-
 /**
  * Class Config
  *
@@ -15,7 +13,7 @@ use Nette\Object;
  *
  * @package snakeaas\NCKEditor
  */
-class Config extends Object {
+class Config {
 
 	protected $data;
 

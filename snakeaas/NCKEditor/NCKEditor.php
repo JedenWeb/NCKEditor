@@ -9,6 +9,7 @@ namespace snakeaas\NCKEditor;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 use snakeaas\NCKEditor\Storage;
+use snakeaas\NCKEditor\Storage\IStorage;
 
 /**
  * Class NCKEditor
@@ -32,7 +33,7 @@ use snakeaas\NCKEditor\Storage;
  * @method \Nette\Forms\Form setSubmittedBy(\Nette\Forms\ISubmitterControl $by = null) Sets the submittor control.
  * @method array getHttpData() Returns submitted HTTP data.
  * @method void fireEvents() Fires submit/click events.
- * @method \Nette\ArrayHash|array getValues($asArray = FALSE) Returns the values submitted by the form.
+ * @method \Nette\Utils\ArrayHash|array getValues($asArray = FALSE) Returns the values submitted by the form.
  * @method void addError($message) Adds error message to the list.
  * @method array getErrors() Returns validation errors.
  * @method boolean hasErrors()
@@ -47,7 +48,7 @@ use snakeaas\NCKEditor\Storage;
  * @method void validate() Performs the server side validation.
  * @method \Nette\Forms\Container setCurrentGroup(\Nette\Forms\ControlGroup $group = null)
  * @method \Nette\Forms\ControlGroup getCurrentGroup() Returns current group.
- * @method ArrayIterator getControls() Iterates over all form controls.
+ * @method \ArrayIterator getControls() Iterates over all form controls.
  * @method \Nette\Forms\Controls\TextInput addText($name, $label = null, $cols = null, $maxLength = null) Adds single-line text input control to the form.
  * @method \Nette\Forms\Controls\TextInput addPassword($name, $label = null, $cols = null, $maxLength = null) Adds single-line text input control used for sensitive input such as passwords.
  * @method \Nette\Forms\Controls\TextArea addTextArea($name, $label = null, $cols = 40, $rows = 10) Adds multi-line text input control to the form.

@@ -6,10 +6,9 @@
 
 namespace snakeaas\NCKEditor\Storage;
 
-use Nette\Object;
 use Nette\Utils\Finder;
 
-class FileStorage extends Object implements IStorage {
+class FileStorage implements IStorage {
 
 	/** @var string */
 	protected $uploadDirName;
